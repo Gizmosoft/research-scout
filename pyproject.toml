@@ -1,6 +1,6 @@
 [project]
 name = "research-scout"
-version = "0.1.0"
+version = "1.0.0"
 description = "Local CLI that finds new research papers and blogs for a saved user profile."
 requires-python = ">=3.11"
 dependencies = [
