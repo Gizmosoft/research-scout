@@ -85,7 +85,8 @@ class Orchestrator:
             log.info("run failed error=%s", type(exc).__name__)
             raise
         finally:
-            write_metrics(self.metrics_path, self.metrics)
+            if self.settings.write_telemetry:
+                write_metrics(self.metrics_path, self.metrics)
         return RunResult(
             papers_written=self.metrics.papers_written,
             blogs_written=self.metrics.blogs_written,

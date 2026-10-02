@@ -6,7 +6,7 @@ from rich.table import Table
 from research_scout.agents.jev_scorer import JevScorer
 from research_scout.agents.query import QueryAgent
 from research_scout.agents.relevancy import LlamaScorer
-from research_scout.config import Settings
+from research_scout.config import Settings, init_config, needs_init
 from research_scout.orchestrator import Orchestrator
 from research_scout.telemetry.jev_client import JevClient
 from research_scout.telemetry.logging import log, new_run_id, setup_logging
@@ -25,12 +25,25 @@ BANNER = """
 
 
 def main() -> None:
+    if len(sys.argv) > 1 and sys.argv[1] == "init":
+        path, created = init_config()
+        if created:
+            print(f"Wrote {path}")
+        else:
+            print(f"Config already exists at {path}")
+        print("Edit that file, then run research-scout.")
+        return
+    if needs_init():
+        print("No configuration found.")
+        print("Run `research-scout init` first, then set your Ollama and API keys.")
+        raise SystemExit(1)
     settings = Settings()
     settings.ensure_dirs()
     run_id = new_run_id()
     log_path = settings.logs_dir / f"session-{run_id}.log"
     metrics_path = settings.metrics_dir / f"run-{run_id}.json"
-    setup_logging(log_path)
+    if settings.write_telemetry:
+        setup_logging(log_path)
     console = Console()
     console.print(BANNER)
     use_jev = settings.scorer == "jev"
@@ -57,7 +70,8 @@ def main() -> None:
                 f"Ollama is not reachable at {settings.ollama_host}, "
                 f"or {settings.ollama_model} is not installed."
             )
-            write_metrics(metrics_path, metrics)
+            if settings.write_telemetry:
+                write_metrics(metrics_path, metrics)
             raise SystemExit(1)
         if use_jev:
             jev = JevClient(settings, metrics)
@@ -71,7 +85,8 @@ def main() -> None:
                     f"Jev is not reachable at {settings.jev_base_url}, "
                     "or JEV_API_KEY is missing or rejected."
                 )
-                write_metrics(metrics_path, metrics)
+                if settings.write_telemetry:
+                    write_metrics(metrics_path, metrics)
                 raise SystemExit(1)
             scorer = JevScorer(jev)
         else:
@@ -107,7 +122,10 @@ def main() -> None:
     except SystemExit:
         raise
     except Exception:
-        console.print(f"Run failed. See {log_path}")
+        if settings.write_telemetry:
+            console.print(f"Run failed. See {log_path}")
+        else:
+            console.print("Run failed.")
         raise SystemExit(1) from None
     finally:
         retrieval.close()
@@ -124,9 +142,14 @@ def main() -> None:
         ("Duplicates skipped", str(result.duplicates_skipped)),
         ("Paper shortfall", str(result.papers_shortfall)),
         ("Results", str(result.results_path)),
-        ("Log", str(result.log_path)),
-        ("Metrics", str(result.metrics_path)),
     ]
+    if settings.write_telemetry:
+        rows.extend(
+            [
+                ("Log", str(result.log_path)),
+                ("Metrics", str(result.metrics_path)),
+            ]
+        )
     for label, value in rows:
         table.add_row(label, value)
     console.print(table)

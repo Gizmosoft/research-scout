@@ -201,6 +201,7 @@ def test_auth_failure_is_not_retried():
 
 
 def test_missing_jev_key_exits_before_prompt(tmp_path, monkeypatch, capsys):
+    monkeypatch.setattr("pathlib.Path.home", lambda: tmp_path / "home")
     monkeypatch.chdir(tmp_path)
     monkeypatch.delenv("JEV_API_KEY", raising=False)
     monkeypatch.delenv("TYPESAFE_API_KEY", raising=False)

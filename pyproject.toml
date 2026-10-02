@@ -2,6 +2,9 @@
 name = "research-scout"
 version = "1.0.0"
 description = "Local CLI that finds new research papers and blogs for a saved user profile."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Kartikey Hebbar" }]
 requires-python = ">=3.11"
 dependencies = [
     "httpx>=0.27",

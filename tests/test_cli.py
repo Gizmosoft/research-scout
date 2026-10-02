@@ -4,6 +4,7 @@ from research_scout.cli import main
 
 
 def test_missing_ollama_prints_banner_and_skips_prompt(tmp_path, monkeypatch, capsys):
+    monkeypatch.setattr("pathlib.Path.home", lambda: tmp_path / "home")
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("DATA_DIR", str(tmp_path / "data"))
     monkeypatch.setenv("RESULTS_DIR", str(tmp_path / "results"))
