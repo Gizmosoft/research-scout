@@ -1,0 +1,1 @@
+/Users/kartikeyhebbar/Development/research-paper-scraper/.venv/bin/python: No module named research-scout

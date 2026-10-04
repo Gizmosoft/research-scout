@@ -1,0 +1,57 @@
+{
+  "run_id": "20261004T193146Z-cab297",
+  "username": "ai-engineer",
+  "provider": "jev",
+  "model": "jev-1.13.0",
+  "query_model": "llama3:latest",
+  "success": true,
+  "duration_ms": 26492.9,
+  "stages_ms": {
+    "query": 1886.5,
+    "retrieve": 23795.5,
+    "score": 538.1,
+    "write": 1.0
+  },
+  "llm_calls": 4,
+  "prompt_tokens": 8364,
+  "completion_tokens": 659,
+  "ollama_load_ms": 124.8,
+  "ollama_prompt_eval_ms": 31.9,
+  "ollama_eval_ms": 1719.4,
+  "tokens_per_second": 43.62,
+  "retrieval": {
+    "index": 24,
+    "web": 27
+  },
+  "duplicates_skipped": 0,
+  "adjacent_papers_written": 0,
+  "papers_written": 15,
+  "papers_shortfall": 0,
+  "blogs_written": 5,
+  "blogs_rejected": 1,
+  "scores": {
+    "paper": {
+      "min": 89,
+      "mean": 97.4,
+      "max": 100
+    },
+    "blog": {
+      "min": 100,
+      "mean": 100.0,
+      "max": 100
+    }
+  },
+  "retries": 12,
+  "estimated_cost_usd": 0.000358,
+  "scorer": {
+    "provider": "jev",
+    "requested_model": "jev-latest",
+    "model": "jev-1.13.0",
+    "base_url": "https://api.typesafe.ai",
+    "calls": 3,
+    "prompt_tokens": 8230,
+    "completion_tokens": 584,
+    "latency_ms": 536.3,
+    "estimated_cost_usd": 0.000346
+  }
+}

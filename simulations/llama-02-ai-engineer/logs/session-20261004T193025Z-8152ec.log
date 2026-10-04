@@ -1,0 +1,59 @@
+2026-10-04T19:30:25Z INFO spawn worker=intake
+2026-10-04T19:30:25Z INFO spawn worker=retrieval sources=openalex,arxiv,semantic_scholar,web
+2026-10-04T19:30:25Z INFO spawn agent=query model=llama3:latest
+2026-10-04T19:30:25Z INFO spawn agent=relevancy provider=ollama model=llama3:latest
+2026-10-04T19:30:25Z INFO spawn worker=writer
+2026-10-04T19:30:25Z INFO intake username=ai-engineer created=true
+2026-10-04T19:30:25Z INFO orchestrator start username=ai-engineer
+2026-10-04T19:30:25Z INFO worker=writer known papers_or_blogs=0
+2026-10-04T19:30:25Z INFO stage start name=query
+2026-10-04T19:30:27Z INFO llm task=plan latency_ms=1985.0 prompt_tokens=134 completion_tokens=74
+2026-10-04T19:30:27Z INFO agent=query task=plan papers=4 blogs=3
+2026-10-04T19:30:27Z INFO agent=query kind=paper query=Large language models for production applications
+2026-10-04T19:30:27Z INFO agent=query kind=paper query=Retrieval-augmented generation in AI systems
+2026-10-04T19:30:27Z INFO agent=query kind=paper query=Agent-based systems for efficient inference
+2026-10-04T19:30:27Z INFO agent=query kind=paper query=Model evaluation metrics for LLMs
+2026-10-04T19:30:27Z INFO agent=query kind=blog query=LLM application development best practices
+2026-10-04T19:30:27Z INFO agent=query kind=blog query=RAG and vector databases for AI
+2026-10-04T19:30:27Z INFO agent=query kind=blog query=PyTorch optimization techniques for model inference
+2026-10-04T19:30:27Z INFO stage end name=query latency_ms=1985.5
+2026-10-04T19:30:27Z INFO stage start name=retrieve
+2026-10-04T19:30:32Z INFO worker=retrieval relation=direct query=Large language models for production applications openalex=3 arxiv=3 semantic_scholar=3 web_hits=3 web_papers=0
+2026-10-04T19:30:36Z INFO worker=retrieval relation=direct query=Retrieval-augmented generation in AI systems openalex=3 arxiv=3 semantic_scholar=3 web_hits=3 web_papers=0
+2026-10-04T19:30:40Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:30:41Z INFO http failed host=api.openalex.org error=HTTPStatusError
+2026-10-04T19:30:41Z INFO worker=retrieval relation=direct query=Agent-based systems for efficient inference openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=1
+2026-10-04T19:30:44Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:30:45Z INFO worker=retrieval relation=direct query=Model evaluation metrics for LLMs openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:30:46Z INFO extract failed host=www.gitnexa.com
+2026-10-04T19:30:47Z INFO worker=retrieval relation=direct query=LLM application development best practices web_hits=5 blogs=5
+2026-10-04T19:30:48Z INFO extract failed host=pub.towardsai.net
+2026-10-04T19:30:51Z INFO worker=retrieval relation=direct query=RAG and vector databases for AI web_hits=5 blogs=5
+2026-10-04T19:30:52Z INFO extract failed host=chaimrand.medium.com
+2026-10-04T19:30:54Z INFO worker=retrieval relation=direct query=PyTorch optimization techniques for model inference web_hits=5 blogs=5
+2026-10-04T19:30:54Z INFO retrieve relation=direct count=46
+2026-10-04T19:30:54Z INFO stage end name=retrieve latency_ms=26458.1
+2026-10-04T19:30:54Z INFO dedup skipped=0
+2026-10-04T19:30:54Z INFO stage start name=score
+2026-10-04T19:30:59Z INFO llm task=score batch=1 latency_ms=5146.0 prompt_tokens=486 completion_tokens=173
+2026-10-04T19:31:03Z INFO llm task=score batch=2 latency_ms=3616.6 prompt_tokens=457 completion_tokens=125
+2026-10-04T19:31:07Z INFO llm task=score batch=3 latency_ms=4613.5 prompt_tokens=486 completion_tokens=169
+2026-10-04T19:31:12Z INFO llm task=score batch=4 latency_ms=4387.8 prompt_tokens=466 completion_tokens=161
+2026-10-04T19:31:16Z INFO llm task=score batch=5 latency_ms=4714.5 prompt_tokens=469 completion_tokens=175
+2026-10-04T19:31:20Z INFO llm task=score batch=6 latency_ms=4153.7 prompt_tokens=476 completion_tokens=148
+2026-10-04T19:31:25Z INFO llm task=score batch=7 latency_ms=4622.0 prompt_tokens=460 completion_tokens=168
+2026-10-04T19:31:30Z INFO llm task=score batch=8 latency_ms=4760.1 prompt_tokens=470 completion_tokens=172
+2026-10-04T19:31:35Z INFO llm task=score batch=9 latency_ms=5584.1 prompt_tokens=472 completion_tokens=205
+2026-10-04T19:31:40Z INFO llm task=score batch=10 latency_ms=4295.5 prompt_tokens=499 completion_tokens=142
+2026-10-04T19:31:44Z INFO llm task=score batch=11 latency_ms=3931.2 prompt_tokens=506 completion_tokens=126
+2026-10-04T19:31:45Z INFO llm task=score batch=12 latency_ms=1249.0 prompt_tokens=234 completion_tokens=38
+2026-10-04T19:31:45Z INFO agent=relevancy task=score items=45
+2026-10-04T19:31:45Z INFO stage end name=score latency_ms=51077.6
+2026-10-04T19:31:45Z INFO reject kind=blog title=LLM Application Development: Tutorial & 7 Steps to Production Apps score=20 min=70 band=weak reason=LLM application development is a relevant topic, but the tutorial style may not 
+2026-10-04T19:31:45Z INFO reject kind=blog title=AI application development best practices: From prototype to production | Lau... score=60 min=70 band=direct reason=Best practices for AI application development are directly applicable to large l
+2026-10-04T19:31:45Z INFO reject kind=blog title=Vector Databases & RAG: How AI Finds Answers in Milliseconds | by Abinaya Sub... score=40 min=70 band=adjacent reason=Vector databases and RAG are relevant technologies for large language models, bu
+2026-10-04T19:31:45Z INFO reject kind=blog title=16 Vector Databases for RAG and AI Agents score=60 min=70 band=direct reason=RAG, vector databases, AI Agents
+2026-10-04T19:31:45Z INFO reject kind=blog title=Model Inference Optimization Checklist¶ score=20 min=70 band=weak reason=outdated project
+2026-10-04T19:31:45Z INFO stage start name=write
+2026-10-04T19:31:45Z INFO stage end name=write latency_ms=1.4
+2026-10-04T19:31:45Z INFO write papers=15 blogs=5 rejected_blogs=5 shortfall=0

@@ -1,0 +1,50 @@
+2026-10-04T19:31:46Z INFO spawn worker=intake
+2026-10-04T19:31:46Z INFO spawn worker=retrieval sources=openalex,arxiv,semantic_scholar,web
+2026-10-04T19:31:46Z INFO spawn agent=query model=llama3:latest
+2026-10-04T19:31:46Z INFO spawn agent=relevancy provider=jev model=jev-latest base_url=https://api.typesafe.ai
+2026-10-04T19:31:46Z INFO spawn worker=writer
+2026-10-04T19:31:46Z INFO intake username=ai-engineer created=true
+2026-10-04T19:31:46Z INFO orchestrator start username=ai-engineer
+2026-10-04T19:31:46Z INFO worker=writer known papers_or_blogs=0
+2026-10-04T19:31:46Z INFO stage start name=query
+2026-10-04T19:31:48Z INFO llm task=plan latency_ms=1886.2 prompt_tokens=134 completion_tokens=75
+2026-10-04T19:31:48Z INFO agent=query task=plan papers=4 blogs=3
+2026-10-04T19:31:48Z INFO agent=query kind=paper query=Large language models for production applications
+2026-10-04T19:31:48Z INFO agent=query kind=paper query=Retrieval-augmented generation in LLMs
+2026-10-04T19:31:48Z INFO agent=query kind=paper query=Agent systems for efficient inference
+2026-10-04T19:31:48Z INFO agent=query kind=paper query=Model evaluation metrics for LLMs
+2026-10-04T19:31:48Z INFO agent=query kind=blog query=LLM application development best practices
+2026-10-04T19:31:48Z INFO agent=query kind=blog query=RAG and vector databases for AI
+2026-10-04T19:31:48Z INFO agent=query kind=blog query=PyTorch optimization techniques for LLMs
+2026-10-04T19:31:48Z INFO stage end name=query latency_ms=1886.5
+2026-10-04T19:31:48Z INFO stage start name=retrieve
+2026-10-04T19:31:51Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:31:51Z INFO worker=retrieval relation=direct query=Large language models for production applications openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:31:55Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:31:56Z INFO http failed host=api.openalex.org error=HTTPStatusError
+2026-10-04T19:31:56Z INFO worker=retrieval relation=direct query=Retrieval-augmented generation in LLMs openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=1
+2026-10-04T19:32:00Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:32:01Z INFO http failed host=api.openalex.org error=HTTPStatusError
+2026-10-04T19:32:01Z INFO worker=retrieval relation=direct query=Agent systems for efficient inference openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=1
+2026-10-04T19:32:04Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:32:04Z INFO worker=retrieval relation=direct query=Model evaluation metrics for LLMs openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:32:05Z INFO extract failed host=www.gitnexa.com
+2026-10-04T19:32:05Z INFO worker=retrieval relation=direct query=LLM application development best practices web_hits=5 blogs=5
+2026-10-04T19:32:06Z INFO extract failed host=pub.towardsai.net
+2026-10-04T19:32:08Z INFO worker=retrieval relation=direct query=RAG and vector databases for AI web_hits=5 blogs=5
+2026-10-04T19:32:11Z INFO extract failed host=medium.com
+2026-10-04T19:32:11Z INFO worker=retrieval relation=direct query=PyTorch optimization techniques for LLMs web_hits=5 blogs=5
+2026-10-04T19:32:11Z INFO retrieve relation=direct count=41
+2026-10-04T19:32:11Z INFO stage end name=retrieve latency_ms=23795.5
+2026-10-04T19:32:11Z INFO dedup skipped=0
+2026-10-04T19:32:11Z INFO stage start name=score
+2026-10-04T19:32:11Z INFO agent=relevancy provider=jev task=score items=40 per_call=16 questions_per_item=1
+2026-10-04T19:32:12Z INFO llm provider=jev task=score batch=1 latency_ms=207.2 model=jev-1.13.0 prompt_tokens=3244 completion_tokens=234 questions=16
+2026-10-04T19:32:12Z INFO llm provider=jev task=score batch=2 latency_ms=175.4 model=jev-1.13.0 prompt_tokens=3184 completion_tokens=234 questions=16
+2026-10-04T19:32:12Z INFO llm provider=jev task=score batch=3 latency_ms=153.7 model=jev-1.13.0 prompt_tokens=1802 completion_tokens=116 questions=8
+2026-10-04T19:32:12Z INFO agent=relevancy provider=jev task=score calls=3
+2026-10-04T19:32:12Z INFO stage end name=score latency_ms=538.1
+2026-10-04T19:32:12Z INFO reject kind=blog title=PyTorch training optimizations: 5× throughput with GPU profiling and memory a... score=65 min=70 band=adjacent reason=Neighboring topic that is not the stated focus
+2026-10-04T19:32:12Z INFO stage start name=write
+2026-10-04T19:32:12Z INFO stage end name=write latency_ms=1.0
+2026-10-04T19:32:12Z INFO write papers=15 blogs=5 rejected_blogs=1 shortfall=0

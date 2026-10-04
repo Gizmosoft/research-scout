@@ -1,0 +1,57 @@
+{
+  "run_id": "20261004T192838Z-1971f8",
+  "username": "swe-web-infra",
+  "provider": "ollama",
+  "model": "llama3:latest",
+  "query_model": "llama3:latest",
+  "success": true,
+  "duration_ms": 79275.3,
+  "stages_ms": {
+    "query": 4709.2,
+    "retrieve": 30440.3,
+    "score": 44110.9,
+    "write": 1.2
+  },
+  "llm_calls": 11,
+  "prompt_tokens": 4458,
+  "completion_tokens": 1680,
+  "ollama_load_ms": 3997.5,
+  "ollama_prompt_eval_ms": 7572.7,
+  "ollama_eval_ms": 37109.9,
+  "tokens_per_second": 45.27,
+  "retrieval": {
+    "index": 24,
+    "web": 27
+  },
+  "duplicates_skipped": 0,
+  "adjacent_papers_written": 0,
+  "papers_written": 15,
+  "papers_shortfall": 0,
+  "blogs_written": 5,
+  "blogs_rejected": 7,
+  "scores": {
+    "paper": {
+      "min": 40,
+      "mean": 68.0,
+      "max": 90
+    },
+    "blog": {
+      "min": 80,
+      "mean": 88.4,
+      "max": 92
+    }
+  },
+  "retries": 8,
+  "estimated_cost_usd": 0.000357,
+  "scorer": {
+    "provider": "ollama",
+    "requested_model": "llama3:latest",
+    "model": "llama3:latest",
+    "base_url": "",
+    "calls": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "latency_ms": 0,
+    "estimated_cost_usd": 0.0
+  }
+}

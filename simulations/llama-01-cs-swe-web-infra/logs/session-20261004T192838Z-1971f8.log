@@ -1,0 +1,58 @@
+2026-10-04T19:28:38Z INFO spawn worker=intake
+2026-10-04T19:28:38Z INFO spawn worker=retrieval sources=openalex,arxiv,semantic_scholar,web
+2026-10-04T19:28:38Z INFO spawn agent=query model=llama3:latest
+2026-10-04T19:28:38Z INFO spawn agent=relevancy provider=ollama model=llama3:latest
+2026-10-04T19:28:38Z INFO spawn worker=writer
+2026-10-04T19:28:38Z INFO intake username=swe-web-infra created=true
+2026-10-04T19:28:38Z INFO orchestrator start username=swe-web-infra
+2026-10-04T19:28:38Z INFO worker=writer known papers_or_blogs=0
+2026-10-04T19:28:38Z INFO stage start name=query
+2026-10-04T19:28:43Z INFO llm task=plan latency_ms=4708.6 prompt_tokens=133 completion_tokens=64
+2026-10-04T19:28:43Z INFO agent=query task=plan papers=4 blogs=3
+2026-10-04T19:28:43Z INFO agent=query kind=paper query=Web infrastructure for scalable applications
+2026-10-04T19:28:43Z INFO agent=query kind=paper query=Distributed database query optimization techniques
+2026-10-04T19:28:43Z INFO agent=query kind=paper query=Caching strategies for high-traffic websites
+2026-10-04T19:28:43Z INFO agent=query kind=paper query=Reliable API design patterns
+2026-10-04T19:28:43Z INFO agent=query kind=blog query=Best practices for building web services
+2026-10-04T19:28:43Z INFO agent=query kind=blog query=Frontend engineering best practices
+2026-10-04T19:28:43Z INFO agent=query kind=blog query=Database caching for improved performance
+2026-10-04T19:28:43Z INFO stage end name=query latency_ms=4709.2
+2026-10-04T19:28:43Z INFO stage start name=retrieve
+2026-10-04T19:28:47Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:28:48Z INFO worker=retrieval relation=direct query=Web infrastructure for scalable applications openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:28:51Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:28:52Z INFO worker=retrieval relation=direct query=Distributed database query optimization techniques openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=1
+2026-10-04T19:28:55Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:28:56Z INFO worker=retrieval relation=direct query=Caching strategies for high-traffic websites openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:28:59Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:29:00Z INFO worker=retrieval relation=direct query=Reliable API design patterns openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:29:08Z INFO worker=retrieval relation=direct query=Best practices for building web services web_hits=5 blogs=5
+2026-10-04T19:29:08Z INFO extract failed host=medium.com
+2026-10-04T19:29:10Z INFO worker=retrieval relation=direct query=Frontend engineering best practices web_hits=5 blogs=5
+2026-10-04T19:29:13Z INFO worker=retrieval relation=direct query=Database caching for improved performance web_hits=5 blogs=5
+2026-10-04T19:29:13Z INFO retrieve relation=direct count=40
+2026-10-04T19:29:13Z INFO stage end name=retrieve latency_ms=30440.3
+2026-10-04T19:29:13Z INFO dedup skipped=0
+2026-10-04T19:29:13Z INFO stage start name=score
+2026-10-04T19:29:18Z INFO llm task=score batch=1 latency_ms=5024.9 prompt_tokens=362 completion_tokens=181
+2026-10-04T19:29:22Z INFO llm task=score batch=2 latency_ms=3773.3 prompt_tokens=402 completion_tokens=139
+2026-10-04T19:29:27Z INFO llm task=score batch=3 latency_ms=5094.2 prompt_tokens=398 completion_tokens=198
+2026-10-04T19:29:31Z INFO llm task=score batch=4 latency_ms=4394.6 prompt_tokens=475 completion_tokens=160
+2026-10-04T19:29:37Z INFO llm task=score batch=5 latency_ms=5538.0 prompt_tokens=461 completion_tokens=211
+2026-10-04T19:29:41Z INFO llm task=score batch=6 latency_ms=4215.1 prompt_tokens=475 completion_tokens=152
+2026-10-04T19:29:45Z INFO llm task=score batch=7 latency_ms=4021.9 prompt_tokens=426 completion_tokens=147
+2026-10-04T19:29:50Z INFO llm task=score batch=8 latency_ms=4604.9 prompt_tokens=448 completion_tokens=171
+2026-10-04T19:29:54Z INFO llm task=score batch=9 latency_ms=4060.9 prompt_tokens=460 completion_tokens=140
+2026-10-04T19:29:57Z INFO llm task=score batch=10 latency_ms=3380.2 prompt_tokens=418 completion_tokens=117
+2026-10-04T19:29:57Z INFO agent=relevancy task=score items=40
+2026-10-04T19:29:57Z INFO stage end name=score latency_ms=44110.9
+2026-10-04T19:29:57Z INFO reject kind=blog title=CMS Technical Reference Architecture | CMS Information Security and Privacy P... score=20 min=70 band=weak reason=CMS technical reference architecture lacks relevance to software engineering or 
+2026-10-04T19:29:57Z INFO reject kind=blog title=Best Practices in Web Service Design score=67 min=70 band=adjacent reason=Blog discusses best practices in web service design, which is a related topic to
+2026-10-04T19:29:57Z INFO reject kind=blog title=Front-end best practices. Pushing any front-end project from… | by Franck LEB... score=33 min=70 band=weak reason=Blog focuses on front-end best practices, which is not directly related to user'
+2026-10-04T19:29:57Z INFO reject kind=blog title=6 Best Practices Every Front-end Developer should Follow score=67 min=70 band=adjacent reason=Blog discusses best practices for front-end developers, which is a related topic
+2026-10-04T19:29:57Z INFO reject kind=blog title=Care beyond code: 7 best design practices for frontend developers—Martian Chr... score=20 min=70 band=weak reason=not directly related to computer science or software engineering
+2026-10-04T19:29:57Z INFO reject kind=blog title=Boosting Productivity as a Frontend Engineer: Best Practices and Strategies score=60 min=70 band=direct reason=boosting productivity as a frontend engineer is relevant to goals and skills
+2026-10-04T19:29:57Z INFO reject kind=blog title=Database caching - Wikipedia score=60 min=70 band=weak reason=too technical and not directly related
+2026-10-04T19:29:57Z INFO stage start name=write
+2026-10-04T19:29:57Z INFO stage end name=write latency_ms=1.2
+2026-10-04T19:29:57Z INFO write papers=15 blogs=5 rejected_blogs=7 shortfall=0

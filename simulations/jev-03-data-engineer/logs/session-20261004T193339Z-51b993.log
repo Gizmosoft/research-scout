@@ -1,0 +1,49 @@
+2026-10-04T19:33:39Z INFO spawn worker=intake
+2026-10-04T19:33:39Z INFO spawn worker=retrieval sources=openalex,arxiv,semantic_scholar,web
+2026-10-04T19:33:39Z INFO spawn agent=query model=llama3:latest
+2026-10-04T19:33:39Z INFO spawn agent=relevancy provider=jev model=jev-latest base_url=https://api.typesafe.ai
+2026-10-04T19:33:39Z INFO spawn worker=writer
+2026-10-04T19:33:39Z INFO intake username=data-engineer created=true
+2026-10-04T19:33:39Z INFO orchestrator start username=data-engineer
+2026-10-04T19:33:39Z INFO worker=writer known papers_or_blogs=0
+2026-10-04T19:33:39Z INFO stage start name=query
+2026-10-04T19:33:41Z INFO llm task=plan latency_ms=1450.1 prompt_tokens=133 completion_tokens=55
+2026-10-04T19:33:41Z INFO agent=query task=plan papers=4 blogs=3
+2026-10-04T19:33:41Z INFO agent=query kind=paper query=Data platform reliability metrics
+2026-10-04T19:33:41Z INFO agent=query kind=paper query=Warehouse design patterns
+2026-10-04T19:33:41Z INFO agent=query kind=paper query=ML-ready analytics architectures
+2026-10-04T19:33:41Z INFO agent=query kind=paper query=ETL pipeline optimization techniques
+2026-10-04T19:33:41Z INFO agent=query kind=blog query=Reliable data platforms for ML
+2026-10-04T19:33:41Z INFO agent=query kind=blog query=Designing warehouses for analytics
+2026-10-04T19:33:41Z INFO agent=query kind=blog query=Building ML-ready data pipelines
+2026-10-04T19:33:41Z INFO stage end name=query latency_ms=1450.3
+2026-10-04T19:33:41Z INFO stage start name=retrieve
+2026-10-04T19:33:44Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:33:45Z INFO worker=retrieval relation=direct query=Data platform reliability metrics openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:33:48Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:33:48Z INFO worker=retrieval relation=direct query=Warehouse design patterns openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:33:51Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:33:51Z INFO worker=retrieval relation=direct query=ML-ready analytics architectures openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:33:54Z INFO worker=retrieval relation=direct query=ETL pipeline optimization techniques openalex=3 arxiv=3 semantic_scholar=3 web_hits=3 web_papers=0
+2026-10-04T19:33:55Z INFO extract failed host=www.gartner.com
+2026-10-04T19:33:55Z INFO extract failed host=www.domo.com
+2026-10-04T19:33:55Z INFO extract failed host=www.g2.com
+2026-10-04T19:33:55Z INFO extract failed host=medium.com
+2026-10-04T19:33:55Z INFO worker=retrieval relation=direct query=Reliable data platforms for ML web_hits=5 blogs=5
+2026-10-04T19:33:57Z INFO extract failed host=www.researchgate.net
+2026-10-04T19:33:57Z INFO worker=retrieval relation=direct query=Designing warehouses for analytics web_hits=5 blogs=5
+2026-10-04T19:33:57Z INFO extract failed host=www.domo.com
+2026-10-04T19:33:58Z INFO worker=retrieval relation=direct query=Building ML-ready data pipelines web_hits=5 blogs=5
+2026-10-04T19:33:58Z INFO retrieve relation=direct count=41
+2026-10-04T19:33:58Z INFO stage end name=retrieve latency_ms=17236.8
+2026-10-04T19:33:58Z INFO dedup skipped=0
+2026-10-04T19:33:58Z INFO stage start name=score
+2026-10-04T19:33:58Z INFO agent=relevancy provider=jev task=score items=41 per_call=16 questions_per_item=1
+2026-10-04T19:33:58Z INFO llm provider=jev task=score batch=1 latency_ms=238.0 model=jev-1.13.0 prompt_tokens=3091 completion_tokens=234 questions=16
+2026-10-04T19:33:59Z INFO llm provider=jev task=score batch=2 latency_ms=154.8 model=jev-1.13.0 prompt_tokens=3156 completion_tokens=234 questions=16
+2026-10-04T19:33:59Z INFO llm provider=jev task=score batch=3 latency_ms=159.4 model=jev-1.13.0 prompt_tokens=1944 completion_tokens=130 questions=9
+2026-10-04T19:33:59Z INFO agent=relevancy provider=jev task=score calls=3
+2026-10-04T19:33:59Z INFO stage end name=score latency_ms=553.9
+2026-10-04T19:33:59Z INFO stage start name=write
+2026-10-04T19:33:59Z INFO stage end name=write latency_ms=1.1
+2026-10-04T19:33:59Z INFO write papers=15 blogs=5 rejected_blogs=0 shortfall=0

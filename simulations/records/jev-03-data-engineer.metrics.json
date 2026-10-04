@@ -1,0 +1,57 @@
+{
+  "run_id": "20261004T193339Z-51b993",
+  "username": "data-engineer",
+  "provider": "jev",
+  "model": "jev-1.13.0",
+  "query_model": "llama3:latest",
+  "success": true,
+  "duration_ms": 19505.4,
+  "stages_ms": {
+    "query": 1450.3,
+    "retrieve": 17236.8,
+    "score": 553.9,
+    "write": 1.1
+  },
+  "llm_calls": 4,
+  "prompt_tokens": 8324,
+  "completion_tokens": 653,
+  "ollama_load_ms": 124.8,
+  "ollama_prompt_eval_ms": 31.9,
+  "ollama_eval_ms": 1270.4,
+  "tokens_per_second": 43.29,
+  "retrieval": {
+    "index": 27,
+    "web": 27
+  },
+  "duplicates_skipped": 0,
+  "adjacent_papers_written": 0,
+  "papers_written": 15,
+  "papers_shortfall": 0,
+  "blogs_written": 5,
+  "blogs_rejected": 0,
+  "scores": {
+    "paper": {
+      "min": 51,
+      "mean": 88.93,
+      "max": 100
+    },
+    "blog": {
+      "min": 100,
+      "mean": 100.0,
+      "max": 100
+    }
+  },
+  "retries": 8,
+  "estimated_cost_usd": 0.000355,
+  "scorer": {
+    "provider": "jev",
+    "requested_model": "jev-latest",
+    "model": "jev-1.13.0",
+    "base_url": "https://api.typesafe.ai",
+    "calls": 3,
+    "prompt_tokens": 8191,
+    "completion_tokens": 598,
+    "latency_ms": 552.2,
+    "estimated_cost_usd": 0.000344
+  }
+}

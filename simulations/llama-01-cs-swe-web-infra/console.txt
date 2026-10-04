@@ -1,0 +1,19 @@
+
++----------------------------------------------+
+|              RESEARCH SCOUT                  |
+|     find papers and blogs in one run         |
++----------------------------------------------+
+
+Username: Domain of work: Research interests: Goals: Key skills:                                   Run complete                                  
+┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Result             ┃ Value                                                   ┃
+┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Papers written     │ 15                                                      │
+│ Blogs written      │ 5                                                       │
+│ Blogs rejected     │ 7                                                       │
+│ Duplicates skipped │ 0                                                       │
+│ Paper shortfall    │ 0                                                       │
+│ Results            │ /Users/kartikeyhebbar/Development/research-paper-scrap… │
+│ Log                │ /Users/kartikeyhebbar/Development/research-paper-scrap… │
+│ Metrics            │ /Users/kartikeyhebbar/Development/research-paper-scrap… │
+└────────────────────┴─────────────────────────────────────────────────────────┘

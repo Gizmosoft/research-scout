@@ -1,0 +1,57 @@
+{
+  "run_id": "20261004T193213Z-86428c",
+  "username": "data-engineer",
+  "provider": "ollama",
+  "model": "llama3:latest",
+  "query_model": "llama3:latest",
+  "success": true,
+  "duration_ms": 85970.9,
+  "stages_ms": {
+    "query": 1573.0,
+    "retrieve": 24828.9,
+    "score": 59553.5,
+    "write": 1.5
+  },
+  "llm_calls": 11,
+  "prompt_tokens": 4530,
+  "completion_tokens": 1552,
+  "ollama_load_ms": 1279.8,
+  "ollama_prompt_eval_ms": 14949.3,
+  "ollama_eval_ms": 44759.1,
+  "tokens_per_second": 34.67,
+  "retrieval": {
+    "index": 24,
+    "web": 27
+  },
+  "duplicates_skipped": 0,
+  "adjacent_papers_written": 0,
+  "papers_written": 15,
+  "papers_shortfall": 0,
+  "blogs_written": 5,
+  "blogs_rejected": 10,
+  "scores": {
+    "paper": {
+      "min": 40,
+      "mean": 64.0,
+      "max": 80
+    },
+    "blog": {
+      "min": 70,
+      "mean": 80.0,
+      "max": 90
+    }
+  },
+  "retries": 8,
+  "estimated_cost_usd": 0.000351,
+  "scorer": {
+    "provider": "ollama",
+    "requested_model": "llama3:latest",
+    "model": "llama3:latest",
+    "base_url": "",
+    "calls": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "latency_ms": 0,
+    "estimated_cost_usd": 0.0
+  }
+}

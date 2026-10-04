@@ -1,0 +1,66 @@
+2026-10-04T19:32:13Z INFO spawn worker=intake
+2026-10-04T19:32:13Z INFO spawn worker=retrieval sources=openalex,arxiv,semantic_scholar,web
+2026-10-04T19:32:13Z INFO spawn agent=query model=llama3:latest
+2026-10-04T19:32:13Z INFO spawn agent=relevancy provider=ollama model=llama3:latest
+2026-10-04T19:32:13Z INFO spawn worker=writer
+2026-10-04T19:32:13Z INFO intake username=data-engineer created=true
+2026-10-04T19:32:13Z INFO orchestrator start username=data-engineer
+2026-10-04T19:32:13Z INFO worker=writer known papers_or_blogs=0
+2026-10-04T19:32:13Z INFO stage start name=query
+2026-10-04T19:32:14Z INFO llm task=plan latency_ms=1572.8 prompt_tokens=133 completion_tokens=55
+2026-10-04T19:32:14Z INFO agent=query task=plan papers=4 blogs=3
+2026-10-04T19:32:14Z INFO agent=query kind=paper query=Data platform reliability metrics
+2026-10-04T19:32:14Z INFO agent=query kind=paper query=Warehouse design patterns
+2026-10-04T19:32:14Z INFO agent=query kind=paper query=ML-ready analytics architectures
+2026-10-04T19:32:14Z INFO agent=query kind=paper query=ETL pipeline optimization techniques
+2026-10-04T19:32:14Z INFO agent=query kind=blog query=Reliable data platforms for ML
+2026-10-04T19:32:14Z INFO agent=query kind=blog query=Designing warehouses for analytics
+2026-10-04T19:32:14Z INFO agent=query kind=blog query=Building ML-ready data pipelines
+2026-10-04T19:32:14Z INFO stage end name=query latency_ms=1573.0
+2026-10-04T19:32:14Z INFO stage start name=retrieve
+2026-10-04T19:32:19Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:32:20Z INFO worker=retrieval relation=direct query=Data platform reliability metrics openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:32:23Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:32:23Z INFO worker=retrieval relation=direct query=Warehouse design patterns openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:32:27Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:32:27Z INFO worker=retrieval relation=direct query=ML-ready analytics architectures openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:32:31Z INFO http failed host=api.semanticscholar.org error=HTTPStatusError
+2026-10-04T19:32:31Z INFO worker=retrieval relation=direct query=ETL pipeline optimization techniques openalex=3 arxiv=3 semantic_scholar=0 web_hits=3 web_papers=0
+2026-10-04T19:32:32Z INFO extract failed host=www.gartner.com
+2026-10-04T19:32:32Z INFO extract failed host=www.domo.com
+2026-10-04T19:32:33Z INFO extract failed host=www.g2.com
+2026-10-04T19:32:33Z INFO extract failed host=medium.com
+2026-10-04T19:32:33Z INFO worker=retrieval relation=direct query=Reliable data platforms for ML web_hits=5 blogs=5
+2026-10-04T19:32:37Z INFO extract failed host=www.researchgate.net
+2026-10-04T19:32:37Z INFO worker=retrieval relation=direct query=Designing warehouses for analytics web_hits=5 blogs=5
+2026-10-04T19:32:38Z INFO extract failed host=www.domo.com
+2026-10-04T19:32:39Z INFO worker=retrieval relation=direct query=Building ML-ready data pipelines web_hits=5 blogs=5
+2026-10-04T19:32:39Z INFO retrieve relation=direct count=39
+2026-10-04T19:32:39Z INFO stage end name=retrieve latency_ms=24828.9
+2026-10-04T19:32:39Z INFO dedup skipped=0
+2026-10-04T19:32:39Z INFO stage start name=score
+2026-10-04T19:32:46Z INFO llm task=score batch=1 latency_ms=6880.3 prompt_tokens=442 completion_tokens=164
+2026-10-04T19:32:52Z INFO llm task=score batch=2 latency_ms=6241.2 prompt_tokens=414 completion_tokens=153
+2026-10-04T19:32:58Z INFO llm task=score batch=3 latency_ms=5671.1 prompt_tokens=430 completion_tokens=135
+2026-10-04T19:33:04Z INFO llm task=score batch=4 latency_ms=5968.1 prompt_tokens=453 completion_tokens=146
+2026-10-04T19:33:10Z INFO llm task=score batch=5 latency_ms=6080.7 prompt_tokens=413 completion_tokens=158
+2026-10-04T19:33:16Z INFO llm task=score batch=6 latency_ms=5887.2 prompt_tokens=457 completion_tokens=147
+2026-10-04T19:33:22Z INFO llm task=score batch=7 latency_ms=6306.4 prompt_tokens=479 completion_tokens=161
+2026-10-04T19:33:29Z INFO llm task=score batch=8 latency_ms=7212.7 prompt_tokens=474 completion_tokens=191
+2026-10-04T19:33:35Z INFO llm task=score batch=9 latency_ms=5728.3 prompt_tokens=443 completion_tokens=150
+2026-10-04T19:33:39Z INFO llm task=score batch=10 latency_ms=3573.3 prompt_tokens=392 completion_tokens=92
+2026-10-04T19:33:39Z INFO agent=relevancy task=score items=39
+2026-10-04T19:33:39Z INFO stage end name=score latency_ms=59553.5
+2026-10-04T19:33:39Z INFO reject kind=blog title=6 Best Data Science & ML Platforms I Reviewed in 2026 score=20 min=70 band=weak reason=not directly related to reliable data platforms or warehouse design
+2026-10-04T19:33:39Z INFO reject kind=blog title=Best AI Platforms for Data Science and Machine Learning Reviews 2026 | Gartne... score=40 min=70 band=adjacent reason=AI platforms for data science and machine learning, but not specifically focused
+2026-10-04T19:33:39Z INFO reject kind=blog title=Cloud Data Platform Guide: Vendors, Features & Trends score=60 min=70 band=direct reason=cloud data platform guide with various vendors and features, including some rele
+2026-10-04T19:33:39Z INFO reject kind=blog title=Practical Data Warehouse Design and Architecture Guide | Databricks Blog score=60 min=70 band=adjacent reason=Three-tier architecture structure is a common approach in data warehousing, whic
+2026-10-04T19:33:39Z INFO reject kind=blog title=How to Design a Data Warehouse (the Right Way) in 2025 score=40 min=70 band=weak reason=The article focuses on general business insights rather than technical details a
+2026-10-04T19:33:39Z INFO reject kind=blog title=Data Warehouse Design Best Practices score=60 min=70 band=adjacent reason=Data warehouse design best practices aligns with user's skills and interests
+2026-10-04T19:33:39Z INFO reject kind=blog title=A full guide to building your Machine Learning pipeline score=40 min=70 band=weak reason=Machine learning pipeline guide is not directly related to user's goals or skill
+2026-10-04T19:33:39Z INFO reject kind=blog title=How to Build AI-Powered Data Pipelines: 5 Patterns That Work score=20 min=70 band=adjacent reason=data pipelines, AI-powered
+2026-10-04T19:33:39Z INFO reject kind=blog title=What Is a Machine Learning Pipeline? | IBM score=60 min=70 band=direct reason=machine learning pipeline, systematic process
+2026-10-04T19:33:39Z INFO reject kind=blog title=What is Machine Learning Pipeline? - GeeksforGeeks score=40 min=70 band=weak reason=machine learning pipeline, structured workflow
+2026-10-04T19:33:39Z INFO stage start name=write
+2026-10-04T19:33:39Z INFO stage end name=write latency_ms=1.5
+2026-10-04T19:33:39Z INFO write papers=15 blogs=5 rejected_blogs=10 shortfall=0
