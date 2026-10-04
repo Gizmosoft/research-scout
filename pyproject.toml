@@ -1,8 +1,8 @@
 [project]
 name = "research-scout"
-version = "1.0.0"
+version = "1.0.1"
 description = "Local CLI that finds new research papers and blogs for a saved user profile."
-readme = "README.md"
+readme = "PYPI.md"
 license = { file = "LICENSE" }
 authors = [{ name = "Kartikey Hebbar" }]
 requires-python = ">=3.11"
